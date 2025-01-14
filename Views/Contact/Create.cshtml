@@ -1,9 +1,12 @@
 ﻿@{
-    ViewData["Title"] = "Create";
+    ViewBag.Title = "Ajouter un contact";
 }
 
-<h2>Create</h2>
-
-<p>Page d'ajout de contact</p>
-
-
+<h1>Ajouter un contact</h1>
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="Name">Nom du contact</label>
+        <input type="text" class="form-control" id="Name" name="Name" />
+    </div>
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+</form>

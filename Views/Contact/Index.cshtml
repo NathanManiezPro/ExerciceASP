@@ -1,7 +1,11 @@
-﻿@{
-    ViewData["Title"] = "Index";
-}
+﻿@model List<ExerciceASP.Models.Contact>
 
-<h2>Index</h2>
-
-<p>Page avec tout les contacts</p>
+<h1>Liste des contacts</h1>
+<ul>
+    @foreach (var contact in Model)
+    {
+        <li>
+            <a asp-action="Details" asp-route-name="@contact.Name">@contact.Name</a> - @contact.Email
+        </li>
+    }
+</ul>

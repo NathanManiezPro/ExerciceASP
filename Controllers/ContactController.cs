@@ -1,27 +1,34 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using ExerciceASP.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ExerciceASP.Controllers
 {
     public class ContactController : Controller
     {
-        // GET : /Contact/Index
         public IActionResult Index()
         {
-            return View();
+            // Liste de contacts (modèle)
+            List<Contact> contacts = new List<Contact>
+            {
+                new Contact { Name = "Nathan", Email = "Nathan@gmail.com" },
+                new Contact { Name = "Clément", Email = "Clément@gmail.com" },
+                new Contact { Name = "Périodique", Email = "Périodique@gmail.com" }
+            };
+
+            return View(contacts);
         }
 
-        // GET : /Contact/Details
-        public IActionResult Details()
+        public IActionResult Details(string name)
         {
-            return View();
+            Contact contact = new Contact { Name = name, Email = $"{name.ToLower()}@gmail.com" };
+            return View(contact);
         }
 
-        // GET : /Contact/Create
         public IActionResult Create()
         {
             return View();
         }
-    
-}
+
+    }
 }
